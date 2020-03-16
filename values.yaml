@@ -9,7 +9,7 @@ volume: arrrr
 studio:
   name: rstudio
   image: rocker/rstudio:latest
-  user: hc7
+  user: user
 
 shiny:
   name: shiny-server
