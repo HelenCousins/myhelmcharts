@@ -1,0 +1,16 @@
+# Default values for arr.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+myname: arrr
+volume: arrrr
+
+studio:
+  name: rstudio
+  image: rocker/rstudio:latest
+  user: hc7
+
+shiny:
+  name: shiny-server
+  image: gcr.io/gcer-public/shiny-googleauthrdemo:latest
