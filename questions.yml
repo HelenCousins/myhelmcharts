@@ -1,7 +1,7 @@
 categories:
 - studio
 questions:
-- variable studio.password
+- variable: studio.password
   default: ""
   required: true
   type: string
