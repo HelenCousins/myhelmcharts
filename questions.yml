@@ -2,6 +2,7 @@ categories:
 - studio
 questions:
 - variable: studio.password
+  label: "password for rstudio"
   default: ""
   required: true
   type: string
