@@ -2,7 +2,7 @@ categories:
 - studio
 questions:
 - variable: studio.user
-  label:"user for rstudio"
+  label: "user for rstudio"
   group: rstudio
   default: "rstudio"
   required: true
