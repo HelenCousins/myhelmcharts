@@ -1,6 +1,20 @@
 categories:
-- studio
+- R
 questions:
+- variable: replicaCount
+  label: "replica count"
+  group: global
+  type: integer
+  default: 1
+- variable: myname
+  label: "name for app" 
+  group: global
+  type: string
+  default: "arr"
+- variable: volume
+  type: pvc
+  label: "shared pvc"
+  group; global
 - variable: studio.user
   label: "user for rstudio"
   group: rstudio
@@ -12,4 +26,12 @@ questions:
   group: rstudio
   default: ""
   required: true
-  type: string
+  type: password
+- variable: studio.image
+  label: "image for rstudio"
+  default: "rocker/rstudio:latest"
+  group: rstudio
+- variable: shiny.image 
+  label: "image for rshiny" 
+  default: "gcr.io/gcer-public/shiny-googleauthrdemo:latest"
+  group: rshiny
