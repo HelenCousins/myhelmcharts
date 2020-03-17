@@ -4,7 +4,7 @@ questions:
 - variable: replicaCount
   label: "replica count"
   group: global
-  type: integer
+  type: int
   default: 1
 - variable: myname
   label: "name for app" 
