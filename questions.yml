@@ -31,7 +31,9 @@ questions:
   label: "image for rstudio"
   default: "rocker/rstudio:latest"
   group: rstudio
+  type: string
 - variable: shiny.image 
   label: "image for rshiny" 
   default: "gcr.io/gcer-public/shiny-googleauthrdemo:latest"
   group: rshiny
+  type: string
