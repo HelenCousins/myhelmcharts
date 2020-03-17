@@ -1,6 +1,12 @@
 categories:
 - studio
 questions:
+- variable: studio.user
+  label:"user for rstudio"
+  group: rstudio
+  default: "rstudio"
+  required: true
+  type: string
 - variable: studio.password
   label: "password for rstudio"
   group: rstudio
