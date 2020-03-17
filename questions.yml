@@ -1,20 +1,20 @@
 categories:
 - R
 questions:
-- variable: replicaCount
-  label: "replica count"
-  group: global
-  type: integer
-  default: 1
-- variable: myname
-  label: "name for app" 
-  group: global
-  type: string
-  default: "arr"
-- variable: volume
-  type: pvc
-  label: "shared pvc"
-  group; global
+#- variable: replicaCount
+#  label: "replica count"
+#  group: global
+#  type: integer
+#  default: 1
+#- variable: myname
+#  label: "name for app" 
+#  group: global
+#  type: string
+#  default: "arr"
+#- variable: volume
+#  type: pvc
+#  label: "shared pvc"
+#  group; global
 - variable: studio.user
   label: "user for rstudio"
   group: rstudio
