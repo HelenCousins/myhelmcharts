@@ -1,0 +1,17 @@
+questions:
+- variable: dep.name
+  label: "name for deployment"
+  group: deployment
+  type: string
+  default: "hello"
+- variable: pvc.name
+  label: "name for pvc"
+  group: volume
+  type: string
+  default: apvc
+- variable: pvc.size
+  label: "pvc size"
+  group: volume
+  type: string
+  default: 5Gi
+

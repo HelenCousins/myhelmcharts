@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: hi
-  name: hello
+  name: {{ .Values.service.name }}
 spec:
   type: NodePort
   ports:

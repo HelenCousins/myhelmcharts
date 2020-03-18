@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello
+  name: {{ .Values.dep.name }}
   labels:
     app: hi
 spec:
@@ -25,5 +25,5 @@ spec:
       volumes:
       - name: myvolume
         persistentVolumeClaim:
-          claimName: testpvc
+          claimName: {{ .Values.pvc.name }}
 
