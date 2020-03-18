@@ -21,3 +21,9 @@ questions:
     group: volume
     type: string
     default: apvc
+  show_subquestion_if: false
+    subquestions:
+    - variable: pvc.existingname
+      label: "existing pvc"
+      group: volume
+      type: pvc
