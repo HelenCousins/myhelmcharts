@@ -6,7 +6,6 @@ dep:
   name: hello
 
 pvc:
-  name: apvc
   size: 5Gi
   create: true
 
