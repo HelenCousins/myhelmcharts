@@ -1,57 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "hello.fullname" . }}
+  name: hello
   labels:
-{{ include "hello.labels" . | indent 4 }}
+    app: hi
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "hello.name" . }}
-      app.kubernetes.io/instance: {{ .Release.Name }}
+      app: hi
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "hello.name" . }}
-        app.kubernetes.io/instance: {{ .Release.Name }}
+        app: hi
     spec:
-    {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
-      serviceAccountName: {{ template "hello.serviceAccountName" . }}
-      securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - name: http
-              containerPort: 80
-              protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-      {{- with .Values.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-    {{- with .Values.affinity }}
-      affinity:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
-    {{- with .Values.tolerations }}
-      tolerations:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
+      - name: hello
+        image: hc7docker/hello-node
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: myvolume
+          mountPath: /mymount
+      volumes:
+      - name: myvolume
+        persistentVolumeClaim:
+          claimName: testpvc
+
