@@ -35,3 +35,4 @@ questions:
   default: "xip.io"
   label: "hostname"
   type: hostname
+  group: ingress
