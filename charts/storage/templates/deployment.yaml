@@ -94,7 +94,7 @@ spec:
       volumes:
       - name: volumes
         hostPath:
-          path: /lustre/secure/hc7-ktest
+          path: {{ .Values.path }}
 
       containers:
       - name: hostpath-provisioner
@@ -102,7 +102,7 @@ spec:
 
         volumeMounts:
         - name: volumes
-          mountPath: /lustre/secure/hc7-ktest
+          mountPath: {{ .Values.path }}
 
         resources:
           limits:
@@ -122,7 +122,5 @@ metadata:
     storageclass.kubernetes.io/is-default-class: "true"
 provisioner: torchbox.com/hostpath
 parameters:
-  pvDir: /lustre/secure/hc7-ktest
-
-
+  pvDir: {{ .Values.path }}
 
