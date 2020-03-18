@@ -7,69 +7,11 @@
 # freely. This software is provided 'as-is', without any express or implied
 # warranty.
 
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  namespace: kube-system
-  name: hostpath-provisioner
-
----
-
-apiVersion: rbac.authorization.k8s.io/v1beta1
-kind: ClusterRoleBinding
-metadata:
-  name: hostpath-provisioner
-subjects:
-- kind: ServiceAccount
-  name: hostpath-provisioner
-  namespace: kube-system
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: system:persistent-volume-provisioner
-
----
 
 # The default system:persistent-volume-provisioner role in Kubernetes 1.8 is
 # insufficient:
 #
 # I1007 18:09:10.073558       1 controller.go:874] cannot start watcher for PVC default/testpvc: events is forbidden: User "system:serviceaccount:kube-system:hostpath-provi$
-
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: hostpath-provisioner-extra
-rules:
-- apiGroups:
-rules:
-- apiGroups:
-  - ""
-  resources:
-  - events
-  verbs:
-  - create
-  - patch
-  - update
-  - list
-  - get
-  - watch
-
----
-
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: hostpath-provisioner-extra
-subjects:
-- kind: ServiceAccount
-  namespace: kube-system
-  name: hostpath-provisioner
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: hostpath-provisioner-extra
-
----
 
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -111,16 +53,3 @@ spec:
           requests:
             cpu: 100m
             memory: 64Mi
-
----
-
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: bob
-  annotations:
-    storageclass.kubernetes.io/is-default-class: "true"
-provisioner: torchbox.com/hostpath
-parameters:
-  pvDir: {{ .Values.path }}
-
