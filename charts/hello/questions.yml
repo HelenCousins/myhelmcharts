@@ -21,7 +21,7 @@ questions:
     group: volume
     type: string
     default: apvc
-- variable: pvc.existingname
+- variable: pvc.name
   label: "existing pvc"
   group: volume
   type: pvc
