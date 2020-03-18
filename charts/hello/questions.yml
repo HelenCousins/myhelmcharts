@@ -26,4 +26,12 @@ questions:
   group: volume
   type: pvc
   show_if: "pvc.create=false"
-
+- variable: ingress.name
+  label: "name for ingress"
+  default: "hi"
+  type: string
+  group: ingress
+- variable: ingress.hostname
+  default: "xip.io"
+  label: "hostname"
+  type: hostname
