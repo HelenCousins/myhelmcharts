@@ -1,0 +1,8 @@
+categories:
+- storage
+questions:
+- variable: path
+  label: "path for persistant volume claims"
+  group: storage options
+  type: string
+  default: "/lustre/secure"
