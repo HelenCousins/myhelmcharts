@@ -8,6 +8,7 @@ dep:
 pvc:
   name: apvc
   size: 5Gi
+  create: true
 
 service:
   name: hello
