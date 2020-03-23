@@ -1,4 +1,4 @@
-questions:
+ questions:
 - variable: dep.name
   label: "name for deployment"
   group: deployment
@@ -21,6 +21,11 @@ questions:
     group: volume
     type: string
     default: apvc
+  - variable: pvc.class
+    label "storage class"
+    group: volume
+    type: storageclass
+    default: ""
 - variable: pvc.name
   label: "existing pvc"
   group: volume
