@@ -21,11 +21,11 @@
     group: volume
     type: string
     default: apvc
-  - variable: pvc.class
-    label "storage class"
-    group: volume
-    type: string
-    default: ""
+#  - variable: pvc.class
+#    label "storage class"
+#    group: volume
+#    type: string
+#    default: ""
 - variable: pvc.name
   label: "existing pvc"
   group: volume
