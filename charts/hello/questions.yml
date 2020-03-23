@@ -24,7 +24,7 @@ questions:
   - variable: pvc.class
     label "storage class"
     group: volume
-    type| string
+    type: string
 #    type: storageclass
     default: ""
 - variable: pvc.name
