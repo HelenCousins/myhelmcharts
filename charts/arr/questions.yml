@@ -11,10 +11,28 @@ questions:
   group: global
   type: string
   default: "arr"
-- variable: volume
+- variable: pvc.create
+  label: "create pvc"
+  group: volume
+  type: boolean
+  default: true
+  show_subquestion_if: true
+  subquestions:
+  - variable: pvc.size
+    label: "pvc size"
+    group: volume
+    type: string
+    default: 5Gi
+  - variable: pvc.name
+    label: "name for pvc"
+    group: volume
+    type: string
+    default: apvc
+- variable: pvc.name
+  label: "existing pvc"
+  group: volume
   type: pvc
-  label: "shared pvc"
-  group: global
+  show_if: "pvc.create=false"
 - variable: studio.user
   label: "user for rstudio"
   group: rstudio
