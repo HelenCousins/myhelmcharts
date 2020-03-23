@@ -8,7 +8,7 @@ metadata:
 spec:
   rules:
   - host: {{ .Values.shiny.ingress.hostname }}
-   http:
+    http:
       paths:
       - path: /
         backend:
