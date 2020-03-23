@@ -6,3 +6,9 @@ questions:
   group: storage options
   type: string
   default: "/lustre/secure"
+- variable: className
+  label: "name for storage class"
+  group: storage options
+  type: string
+  default: "bob"
+
