@@ -8,4 +8,6 @@ metadata:
 provisioner: torchbox.com/hostpath
 parameters:
   pvDir: {{ .Values.path }}
+reclaimPolicy: Retain
+
 
