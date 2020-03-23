@@ -7,7 +7,8 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - http:
+  - host: {{ .Values.shiny.ingress.hostname }}
+   http:
       paths:
       - path: /
         backend:
@@ -24,7 +25,8 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - http:
+  - host: {{ .Values.studio.ingress.hostname }}
+    http:
       paths:
       - path: /
         backend:

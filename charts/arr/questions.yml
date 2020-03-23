@@ -32,8 +32,19 @@ questions:
   default: "rocker/rstudio:latest"
   group: rstudio
   type: string
+- variable: studio.ingress.hostname
+  default: "xip.io"
+  label: "hostname"
+  type: hostname
+  group: rstudio
 - variable: shiny.image 
   label: "image for rshiny" 
   default: "gcr.io/gcer-public/shiny-googleauthrdemo:latest"
   group: rshiny
   type: string
+- variable: shiny.ingress.hostname
+  default: "xip.io"
+  label: "hostname"
+  type: hostname
+  group: rshiny
+
