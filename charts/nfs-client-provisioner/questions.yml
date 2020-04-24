@@ -1,0 +1,20 @@
+questions:
+- variable: nfs.server
+  label: "server IP"
+  group: NFS
+  type: string
+  default: ""
+- variable: nfs.path
+  label: "path of nfs export on server"
+  group: NFS
+  type: string
+  default: "/nfs"
+- variable: storageClass.defaultClass
+  label: "make this the default class?"
+  group: Class
+  type: boolean
+- variable: storageClass.name
+  label: "name for storage class"
+  group: Class
+  type: string
+  default: "nfs-client"
