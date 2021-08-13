@@ -38,6 +38,7 @@ spec:
           mountPath: /srv/shiny-server/apps/
       volumes:
       - name: myvolume
+        hostPath:
           # directory location on host
           path: /lustre/scratch123/arr
           # this field is optional
