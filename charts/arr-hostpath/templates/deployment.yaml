@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.myname }}
+  labels:
+    name: {{ .Values.myname }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      name: {{ .Values.myname }}
+  template:
+    metadata:
+      labels:
+        name: {{ .Values.myname }}
+    spec:
+      containers:
+      - name : {{ .Values.studio.name }}
+        image: {{ .Values.studio.image }}
+        env:
+        - name: PASSWORD
+          value: {{ required "must provide studio.password" .Values.studio.password }}
+        - name: USER
+          value: {{ .Values.studio.user }}
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 8787
+          protocol: TCP
+        volumeMounts:
+        - name: myvolume
+          mountPath: /home
+      - name: {{ .Values.shiny.name }}
+        image: {{ .Values.shiny.image }}
+        ports:
+        - containerPort: 3838
+        volumeMounts:
+        - name: myvolume
+          mountPath: /srv/shiny-server/apps/
+      volumes:
+      - name: myvolume
+          # directory location on host
+          path: /lustre/scratch123/arr
+          # this field is optional
+          type: DirectoryOrCreate
+
