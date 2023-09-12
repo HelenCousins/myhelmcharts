@@ -13,8 +13,9 @@ spec:
       - path: /
         pathType: Prefix
         backend:
-          serviceName: {{ .Values.myname }}
-          servicePort: 3838
+          service:
+              name: {{ .Values.myname }}
+              port: 3838
 
 ---
 
@@ -32,6 +33,7 @@ spec:
       - path: /
         pathType: Prefix
         backend:
-          serviceName: {{ .Values.myname }}
-          servicePort: 8787
+          service:
+              name: {{ .Values.myname }}
+              port: 8787
 
