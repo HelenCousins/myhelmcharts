@@ -9,7 +9,8 @@ volume: arrrr
 studio:
   name: rstudio
   image: rocker/rstudio:latest
-  user: user
+  user: rstudio
+  password: aoeu
 
 shiny:
   name: shiny-server
