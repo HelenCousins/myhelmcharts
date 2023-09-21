@@ -56,7 +56,7 @@ questions:
   group: rstudio
   type: string
 - variable: studio.ingress.hostname
-  default: "xip.io"
+  default: "hc7test1.internal.sanger.ac.uk"
   label: "hostname"
   type: hostname
   group: rstudio
@@ -66,7 +66,7 @@ questions:
   group: rshiny
   type: string
 - variable: shiny.ingress.hostname
-  default: "xip.io"
+  default: "hc7test2.internal.sanger.ac.uk"
   label: "hostname"
   type: hostname
   group: rshiny
